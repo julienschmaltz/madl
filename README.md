@@ -1,6 +1,7 @@
 # MaDL: Micro-archictural Description Language
-Repository about the Micro-architectural Description Language (MaDL)
 
-This is the public repository about MaDL. 
+MaDL is a language to formally model and analyse micro-architectures. 
 
-Contact information please contact j.schmaltz@tue.nl
+This is the public repository with core MaDL tools. 
+
+For more information please contact j.schmaltz@tue.nl.
