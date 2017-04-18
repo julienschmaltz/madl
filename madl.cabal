@@ -116,13 +116,18 @@ test-suite test-MadlTypeChecker
   type:               exitcode-stdio-1.0
   main-is:            TypeCheckerTest.hs
   hs-source-dirs:     test/app/Parser, src, examples
-  build-depends:       base >= 4.7,
-                       madl,
-                       parsec >= 3.1,
-                       test-framework -any,
-                       test-framework-hunit -any,
-                       HUnit -any,
-                       text -any
+  build-depends:      base >= 4.7,
+                      containers -any,
+                      madl,
+                      fgl -any,
+                      either-unwrap -any,
+                      hashable -any,
+                      hashmap -any,
+                      parsec >= 3.1,
+                      test-framework -any,
+                      test-framework-hunit -any,
+                      HUnit -any,
+                      text -any
   ghc-options:         -threaded -rtsopts -with-rtsopts=-N
   CPP-options:         -DTESTING
   default-language:    Haskell2010
