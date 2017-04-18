@@ -1,6 +1,6 @@
 # MaDL: Micro-architectural Description Language
 
-https://travis-ci.org/julienschmaltz/madl.svg?branch=master
+[![Build Status](https://travis-ci.org/julienschmaltz/madl.svg?branch=master)](https://travis-ci.org/julienschmaltz/madl)
 
 MaDL is a language to formally model and analyse micro-architectures. 
 
