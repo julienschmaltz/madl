@@ -19,6 +19,7 @@ library
                        Madl.Base,
                        Madl.Cycles,
                        Madl.Identifiers,
+                       Madl.Islands,
                        Madl.MsgTypes,
                        Madl.Network,
                        Madl.SourceInformation,
@@ -58,6 +59,27 @@ executable parser-exe
   ghc-options: -Wall -Werror
   default-language: Haskell2010
 
+
+test-suite test-UnitTests
+  type:                exitcode-stdio-1.0
+  main-is:             Main.hs
+  hs-source-dirs:      test/unit, src, examples
+  build-depends:       base >= 4.7,
+                       containers -any,
+                       either-unwrap -any,
+                       parsec -any,
+                       test-framework -any,
+                       test-framework-hunit -any,
+                       HUnit -any,
+                       text -any,
+                       hashmap -any,
+                       hashable -any,
+                       fgl -any,
+                       madl
+  ghc-options:         -threaded -rtsopts -with-rtsopts=-N
+  CPP-options:         -DTESTING
+  default-language:    Haskell2010
+ 
 
 test-suite test-MadlNetwork
   type:                exitcode-stdio-1.0
