@@ -1,0 +1,104 @@
+name:                madl
+version:             0.1.0.0
+-- synopsis:
+-- description:
+homepage:            https://github.com/julienschmaltz/madl#readme
+license:             MIT
+license-file:        LICENSE
+author:              Julien Schmaltz
+maintainer:          j.schmaltz@tue.nl
+copyright:           2017 TU Eindhoven
+category:            Web
+build-type:          Simple
+extra-source-files:  README.md
+cabal-version:       >=1.10
+
+library
+  hs-source-dirs:      src, examples
+  exposed-modules:     Examples,
+                       Madl.Base,
+                       Madl.Cycles,
+                       Madl.Identifiers,
+                       Madl.MsgTypes,
+                       Madl.Network,
+                       Madl.SourceInformation,
+                       Parser.IncludeStatement,
+                       Parser.ASTTranslator,
+                       Parser.MadlAST,
+                       Parser.MadlLexer,
+                       Parser.MadlParser,
+                       Parser.MadlTypeChecker
+                       Utils.Either,
+                       Utils.Executable,
+                       Utils.File,
+                       Utils.Map,
+                       Utils.Text,
+                       Utils.Tuple
+  build-depends:       base >= 4.7 && < 5,
+                       containers >= 0.5.8.1,
+                       either-unwrap >= 1.1,
+                       fgl >= 5.5.2,
+                       fgl-visualize >= 0.1.0.1,
+                       filepath >= 1.4.0,
+                       hashable -any,
+                       hashmap >= 1.3.0,
+                       parsec >= 3.1.9,
+                       regex-posix >= 0.95.2,
+                       text >= 1.2.1
+  default-language:    Haskell2010
+
+
+
+executable parser-exe
+  hs-source-dirs:     app/Parser
+  main-is:            parser-main.hs
+  build-depends:      base,
+                      madl,
+                      text
+  ghc-options: -Wall -Werror
+  default-language: Haskell2010
+
+
+test-suite test-MadlNetwork
+  type:                exitcode-stdio-1.0
+  main-is:             TestNetwork.hs
+  hs-source-dirs:      test/src/Madl
+  build-depends:       base >= 4.7,
+                       test-framework -any,
+                       test-framework-hunit -any,
+                       HUnit -any,
+                       text -any,
+                       hashmap -any,
+                       madl
+  ghc-options:         -threaded -rtsopts -with-rtsopts=-N
+  CPP-options:         -DTESTING
+  default-language:    Haskell2010
+
+test-suite test-MadlParser
+  type:               exitcode-stdio-1.0
+  main-is:             ParserTest.hs
+  hs-source-dirs:      test/app/Parser/, src, examples
+  build-depends:       base >= 4.7,  
+                       madl,
+                       parsec >= 3.1,
+                       test-framework -any,
+                       test-framework-hunit -any,
+                       HUnit -any,
+                       text -any
+  ghc-options:         -threaded -rtsopts -with-rtsopts=-N
+  CPP-options:         -DTESTING
+  default-language:    Haskell2010
+
+
+test-suite madl-test 
+  type:                exitcode-stdio-1.0
+  hs-source-dirs:      test
+  main-is:             Spec.hs
+  build-depends:       base
+                     , madl
+  ghc-options:         -threaded -rtsopts -with-rtsopts=-N
+  default-language:    Haskell2010
+
+source-repository head
+  type:     git
+  location: https://github.com/julienschmaltz/madl

@@ -11,4 +11,4 @@
 *.hi
 *.DS_Store
 dist/
-/.stack-work/
+madl/.stack-work/
