@@ -30,10 +30,11 @@ pathToTests = "examples/"
 
 testcases :: [(FilePath, Bool)]
 testcases =
-    [ ("internship/gen0_no_reorder.madl", True)
-    , ("internship/gen0_reorder.madl", True)
-    , ("internship/gen0_reorder_cc.madl", True)
-    , ("bugs/issue68.madl", True)
+    [ 
+    --("internship/gen0_no_reorder.madl", True)
+    --, ("internship/gen0_reorder.madl", True)
+    --, ("internship/gen0_reorder_cc.madl", True)
+    ("bugs/issue68.madl", True)
     , ("solvedBugs/issue98.madl", True)
     , ("solvedBugs/issue133.madl", True)
     , ("solvedBugs/issue129.madl", True)
