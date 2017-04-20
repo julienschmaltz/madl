@@ -120,6 +120,11 @@ showColorSetNoSpaces = intercalate "+" . map (\(k,v) -> (utxt k) ++ "<" ++ eithe
     showStruct = intercalate "+" . map (\(k,v) -> (utxt k) ++ "<" ++ either showColorSetNoSpaces showBv v ++ ">") . structAssocs
     showBv = intercalate "+" . map show . Set.toList . bvValues
 
+-- | Show a colorset as a list of strings. Each string is a color printed without spaces.
+-- | The generated names should match the names used to generate SMT variables.
+showColorSetList :: ColorSet -> [String]
+showColorSetList (ColorSet cs) = map showColorNoSpaces (Set.toList cs)    
+
 -- | Check whether a colorset is empty.
 emptyColorSet :: ColorSet -> Bool
 emptyColorSet = Set.null . getColorsSet
