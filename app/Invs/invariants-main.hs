@@ -13,7 +13,7 @@ import Utils.File
 import Utils.Text
 
 import Madl.Cycles
-import Invs.Invariants (showInvariants, matrix)
+import Invariants.Invariants (showInvariants, matrix)
 import Madl.Network
 import Madl.SourceInformation
 

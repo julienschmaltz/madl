@@ -15,7 +15,13 @@ cabal-version:       >=1.10
 
 library
   hs-source-dirs:      src, examples
-  exposed-modules:     Echelon.Echelon,
+  exposed-modules:     Deadlock.DeadlockDetection,
+                       Deadlock.Formulas,
+                       Deadlock.Nuxmv,
+                       Deadlock.Runner,
+                       Deadlock.SMT,
+                       Deadlock.SMTSolvers,
+                       Echelon.Echelon,
                        Examples,
                        Examples.AllPrimitives,
                        Examples.InvariantTestNetwork,
@@ -39,17 +45,20 @@ library
                        Madl.MsgTypes,
                        Madl.Network,
                        Madl.SourceInformation,
-                       Invs.Invariants,
+                       Invariants.Invariants,
                        Parser.IncludeStatement,
                        Parser.ASTTranslator,
                        Parser.MadlAST,
                        Parser.MadlLexer,
                        Parser.MadlParser,
                        Parser.MadlTypeChecker
+                       Utils.Concatable,
                        Utils.Either,
                        Utils.Executable,
                        Utils.File,
                        Utils.Map,
+                       Utils.NuxmvCode,
+                       Utils.SMTCode,
                        Utils.Text,
                        Utils.Tuple
   other-modules:       BaseLike.CustomPrelude
@@ -57,16 +66,22 @@ library
                        bytestring >= 0.10.8.1,
                        containers >= 0.5.8.1,
                        data-partition >= 0.3.0.0,
+                       directory >= 1.3.0.0,
                        either-unwrap >= 1.1,
                        fgl >= 5.5.2,
                        fgl-visualize >= 0.1.0.1,
                        filepath >= 1.4.0,
                        hashable -any,
                        hashmap >= 1.3.0,
+                       monad-parallel >= 0.7.2.2,
                        mtl >= 2.2.1,
                        parsec >= 3.1.9,
+                       process >= 1.4.3.0,
                        random >= 1.1,
+                       regex-tdfa >= 1.2.2,
                        regex-posix >= 0.95.2,
+                       split >= 0.2.3.1,
+                       temporary >= 1.2.0.4,
                        text >= 1.2.1,
                        zenc >= 0.1.1
   default-language:    Haskell2010
@@ -90,6 +105,15 @@ executable invs-exe
                       hashmap,
                       madl,
                       text
+  ghc-options: -Wall -Werror
+  default-language: Haskell2010
+
+executable dlockdetect-exe
+  hs-source-dirs:     app/Dlockdetect
+  main-is:            main.hs
+  build-depends:      base,
+                      hashmap,
+                      madl
   ghc-options: -Wall -Werror
   default-language: Haskell2010
 

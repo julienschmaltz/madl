@@ -2,13 +2,13 @@
 {-# LANGUAGE OverloadedStrings, ScopedTypeVariables, FlexibleContexts #-}
 
 {-|
-Module      : Madl.Invariants
+Module      : Invariants.Invariants
 Description : Derives invariants from a madl network.
 Copyright   : (c) Tessa Belder 2015-2016
 
 Provides a data type for invariants. Provides a function to derive invariants from a madl network.
 -}
-module Invs.Invariants (
+module Invariants.Invariants (
     Invariant(..),
     emptyInvariant,
     getInvariants,
