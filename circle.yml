@@ -13,5 +13,5 @@ dependencies:
 
 test:
   override:
-    - case $CIRCLE_NODE_INDEX in 0) stack test -j 4 madl:test-UnitTests ;; 1) stack test -j 4 madl:test-MadlNetwork ;; 2) stack test -j 4 madl:test-MadlTypeChecker ;; 3) stack test -j 4 madl:test-Dlockdetect ;; esac:
-        parallel: true 
+    - stack test madl:test-UnitTests
+
