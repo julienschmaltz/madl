@@ -15,4 +15,7 @@ dependencies:
 test:
   override:
     - stack test madl:test-UnitTests
+    - stack test madl:test-MadlNetwork
+    - stack test madl:test-MadlTypeChecker
+    - stack test madl:test-Dlockdetect
 
