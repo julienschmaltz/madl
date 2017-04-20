@@ -15,7 +15,23 @@ cabal-version:       >=1.10
 
 library
   hs-source-dirs:      src, examples
-  exposed-modules:     Examples,
+  exposed-modules:     Echelon.Echelon,
+                       Examples,
+                       Examples.AllPrimitives,
+                       Examples.InvariantTestNetwork,
+                       Examples.Macros,
+                       Examples.MergeBlock, 
+                       Examples.MergeSwitchNetwork,
+                       Examples.RedBlue,
+                       Examples.ReorderTestNetwork,
+                       Examples.SmallAutomatonNetwork,
+                       Examples.SmallFunctionNetwork,
+                       Examples.SmallMacroTest,
+                       Examples.SmallMatchNetwork,
+                       Examples.SmallSwitchNetwork,
+                       Examples.SmallTestNetwork,
+                       Examples.TwoAgents,
+                       Examples.TypesAndFunctions, 
                        Madl.Base,
                        Madl.Cycles,
                        Madl.Identifiers,
@@ -23,6 +39,7 @@ library
                        Madl.MsgTypes,
                        Madl.Network,
                        Madl.SourceInformation,
+                       Invs.Invariants,
                        Parser.IncludeStatement,
                        Parser.ASTTranslator,
                        Parser.MadlAST,
@@ -35,17 +52,23 @@ library
                        Utils.Map,
                        Utils.Text,
                        Utils.Tuple
+  other-modules:       BaseLike.CustomPrelude
   build-depends:       base >= 4.7 && < 5,
+                       bytestring >= 0.10.8.1,
                        containers >= 0.5.8.1,
+                       data-partition >= 0.3.0.0,
                        either-unwrap >= 1.1,
                        fgl >= 5.5.2,
                        fgl-visualize >= 0.1.0.1,
                        filepath >= 1.4.0,
                        hashable -any,
                        hashmap >= 1.3.0,
+                       mtl >= 2.2.1,
                        parsec >= 3.1.9,
+                       random >= 1.1,
                        regex-posix >= 0.95.2,
-                       text >= 1.2.1
+                       text >= 1.2.1,
+                       zenc >= 0.1.1
   default-language:    Haskell2010
 
 
@@ -60,10 +83,22 @@ executable parser-exe
   default-language: Haskell2010
 
 
+executable invs-exe
+  hs-source-dirs:     app/Invs
+  main-is:            invariants-main.hs
+  build-depends:      base,
+                      hashmap,
+                      madl,
+                      text
+  ghc-options: -Wall -Werror
+  default-language: Haskell2010
+
+
 test-suite test-UnitTests
   type:                exitcode-stdio-1.0
   main-is:             Main.hs
   hs-source-dirs:      test/unit, src, examples
+  other-modules:       Examples.TypesAndFunctions
   build-depends:       base >= 4.7,
                        containers -any,
                        either-unwrap -any,

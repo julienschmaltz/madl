@@ -41,8 +41,10 @@ packages:
 # (e.g., acme-missiles-0.3)
 extra-deps: 
 - containers-0.5.8.1
+- data-partition-0.3.0.0
 - dotgen-0.4.2
 - fgl-visualize-0.1.0.1
+- zenc-0.1.1
 # Override default flag values for local packages and extra-deps
 flags: {}
 
