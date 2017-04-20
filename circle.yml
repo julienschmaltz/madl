@@ -5,6 +5,7 @@ dependencies:
     - wget -q -O- https://s3.amazonaws.com/download.fpcomplete.com/ubuntu/fpco.key | sudo apt-key add -
     - echo 'deb http://download.fpcomplete.com/ubuntu/precise stable main'|sudo tee /etc/apt/sources.list.d/fpco.list
     - sudo apt-get update && sudo apt-get install stack -y
+    - sudo apt-get install z3
   override:
     - stack setup
     - stack build
@@ -12,4 +13,5 @@ dependencies:
 
 test:
   override:
-    - stack test -j 4
+    - case $CIRCLE_NODE_INDEX in 0) stack test -j 4 madl:test-UnitTests ;; 1) stack test -j 4 madl:test-MadlNetwork ;; 2) stack test -j 4 madl:test-MadlTypeChecker ;; 3) stack test -j 4 madl:test-Dlockdetect ;; esac:
+        parallel: true 

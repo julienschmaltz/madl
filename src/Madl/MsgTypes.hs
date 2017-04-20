@@ -27,7 +27,7 @@ module Madl.MsgTypes (
     -- ** Operation
     typeUnion, typeIntersection, typeDifference,
     -- ** Print
-    showColorSetNoSpaces,
+    showColorSetNoSpaces, showColorSetList,
 
     -- * Colors
     -- ** Data Types
