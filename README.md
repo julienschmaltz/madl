@@ -10,4 +10,4 @@ For more information please contact j.schmaltz@tue.nl.
 
 
 #### Credits / Authors
-The authors behind the first release of MaDL (1.0.0) are in alphabetical order: T. Belder, S. Joosten, F. Verbeek, H. de Vloed, W. Wesselink, S. Wouda. 
+Before GitHub, the main authors behind MaDL are in alphabetical order: T. Belder, S. Joosten, F. Verbeek, H. de Vloed, W. Wesselink, S. Wouda. 
