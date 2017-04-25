@@ -1,0 +1,15 @@
+param int SIZE = 2;
+
+struct A {
+    id : [SIZE-1:0];
+};
+pred eq (p: A, q: A) {
+    p.id == q.id
+};
+
+chan a, b := Fork(Source(A));
+chan x0, x1, x2, x3 := Joitch(Queue(1, a), Queue(1, b), eq, otherwise);
+
+Sink(Queue(1, x0));
+Sink(Queue(1, x1));
+DeadSink(x2); Sink(x3);

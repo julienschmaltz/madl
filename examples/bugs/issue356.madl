@@ -1,0 +1,19 @@
+param int SIZE = 2;
+
+struct A {
+    id : [SIZE-1:0];
+};
+pred eq (p: A, q: A) {
+    p.id == q.id
+};
+
+chan a, b := Fork(Source(A));
+chan q_a := Queue(1,a)[q_0];
+chan q_b := Queue(1,b)[q_1];
+chan x0, x1 := Match(eq,q_a, q_b);
+
+chan q_x0 := Queue(1,x0)[q_2];
+chan q_x1 := Queue(1,x1)[q_3];
+
+Sink(q_x0);
+DeadSink(q_x1);
